@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f4ef">
+    <title>Un regalo para ti ♡</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- PANTALLA 1: BIENVENIDA -->
+        <section id="pantalla-inicio" class="pantalla activa">
+            <div class="logo">Con <span>❤️</span> Amor</div>
+            <div class="contenido-inicio">
+                <span class="subtitulo">TIENES UN REGALO</span>
+
+                <h1 id="nombre">Tu nombre</h1>
+
+                <p class="dedicatoria">
+                    "Espero que te guste, mi amor.❤️
+                </p>
+                <p class="dedicatoria">
+                 Lo hice con todo mi corazón, solo para ti."
+                </p>
+
+                <p class="indicacion">
+                    Toca el corazón para descubrir tu regalo.
+                </p>
+
+                <button id="descubrir" class="corazon-inicio"
+                    aria-label="Descubrir regalo">
+                    ♡
+                </button>
+            </div>
+        </section>
+
+
+        <!-- PANTALLA 2: EL CORAZÓN -->
+        <section id="pantalla-corazon" class="pantalla">
+
+            <div class="decoraciones" aria-hidden="true">
+                <span>♡</span>
+                <span>·</span>
+                <span>♡</span>
+                <span>✧</span>
+            </div>
+
+            <div class="contenido-corazon">
+
+                <button id="corazon-principal" class="corazon-principal"
+                    aria-label="Tocar corazón">
+
+                    
+                    <svg viewBox="0 0 120 110"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <defs>
+                            <clipPath id="recorte-corazon">
+                                <path d="
+                                    M60 100
+                                    C48 88 8 62 8 34
+                                    C8 4 48 -3 60 27
+                                    C72 -3 112 4 112 34
+                                    C112 62 72 88 60 100Z
+                                "/>
+                            </clipPath>
+                        </defs>
+
+                        <!-- Relleno progresivo -->
+                        <rect
+                            id="relleno-corazon"
+                            x="0"
+                            y="110"
+                            width="120"
+                            height="0"
+                            fill="#c94f59"
+                            clip-path="url(#recorte-corazon)"
+                        />
+
+                        <!-- Contorno del corazón -->
+                        <path
+                            d="
+                                M60 100
+                                C48 88 8 62 8 34
+                                C8 4 48 -3 60 27
+                                C72 -3 112 4 112 34
+                                C112 62 72 88 60 100Z
+                            "
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        />
+
+                    </svg>
+
+
+                </button>
+
+                <p class="texto-corazon">
+                    Cada toque abre un pedacito del recuerdo.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PANTALLA 3: PÁGINA DE CUMPLEAÑOS -->
+
+        <section id="pantalla-regalo" class="pantalla">
+
+            <!-- NAVEGACIÓN -->
+            <header class="nav-regalo">
+                <a href="#inicio-regalo" class="logo-regalo">♡</a>
+
+                <nav>
+                    <a href="#inicio-regalo">Inicio</a>
+                    <a href="#historia-regalo">Nuestra historia</a>
+                    <a href="#momentos-regalo">Momentos</a>
+                    <a href="#razones-regalo">Razones</a>
+                    <a href="#cancion-regalo">Canción</a>
+                    <a href="#carta-regalo">Carta</a>
+                </nav>
+            </header>
+
+
+            <!-- 01. FELICITACIÓN -->
+           
+<section id="inicio-regalo" class="cumple-hero">
+
+  <div class="hero-content">
+    <span class="etiqueta">------- UN DÍA MUY ESPECIAL ♡ ------</span>
+
+    <h1>¡Feliz<br>cumpleaños!</h1>
+
+    <h2>Para mi persona favorita ♡</h2>
+
+    <p>
+      Hoy es un día para celebrar tu vida, tu sonrisa
+      y todos los momentos bonitos que todavía nos esperan.
+    </p>
+
+    <a href="#historia-regalo" class="btn-regalo">
+      Comenzar nuestro recorrido ↓
+    </a>
+    <br>
+    <span class="etiqueta">------- ♡ ------</span>
+
+  </div>
+
+  <div class="hero-collage">
+
+    <figure class="collage-photo photo-one">
+      <img src="/assets/foto1.jpeg" alt="Nuestro recuerdo 1">
+    </figure>
+
+    <figure class="collage-photo photo-two">
+      <img src="/assets/foto2.jpeg" alt="Nuestro recuerdo 2">
+    </figure>
+
+    <figure class="collage-photo photo-three">
+      <img src="/assets/foto3.jpeg" alt="Nuestro recuerdo 3">
+    </figure>
+
+    <figure class="collage-photo photo-four">
+      <img src="/assets/foto4.jpeg" alt="Nuestro recuerdo 4">
+    </figure>
+
+    <figure class="collage-photo photo-five">
+      <img src="/assets/foto5.jpeg" alt="Nuestro recuerdo 5">
+    </figure>
+
+    <figure class="collage-photo photo-six">
+      <img src="/assets/foto6.jpeg" alt="Nuestro recuerdo 6">
+    </figure>
+
+    <figure class="collage-photo photo-seven">
+      <img src="/assets/foto7.jpeg" alt="Nuestro recuerdo 7">
+    </figure>
+
+    <span class="collage-heart">♡</span>
+
+  </div>
+
+</section>
+
+
+
+            <!-- 02. NUESTRA HISTORIA / GALERÍA -->
+            <section id="historia-regalo" class="seccion-regalo">
+
+                <div class="titulo-seccion">
+                    <span class="etiqueta">NUESTROS RECUERDOS</span>
+                    <h2>Nuestra historia</h2>
+                    <p>Una colección de momentos que guardo en mi corazón.</p>
+                </div>
+
+                <div class="galeria-recuerdos">
+
+                    <div class="recuerdo recuerdo-grande">
+                        <img src="/assets/foto1.jpg" alt="Nuestro recuerdo">
+                        <span>Un momento especial ♡</span>
+                    </div>
+
+                    <div class="recuerdo recuerdo-alto">
+                        <img src="/assets/foto2.jpg" alt="Nuestro recuerdo">
+                        <span>Contigo todo es mejor</span>
+                    </div>
+
+                    <div class="recuerdo recuerdo-pequeno">
+                        <img src="/assets/foto3.jpg" alt="Nuestro recuerdo">
+                        <span>Una sonrisa</span>
+                    </div>
+
+                    <div class="recuerdo recuerdo-ancho">
+                        <img src="/assets/foto4.jpg" alt="Nuestro recuerdo">
+                        <span>Mi lugar favorito</span>
+                    </div>
+
+                    <div class="recuerdo recuerdo-pequeno">
+                        <img src="/assets/foto5.jpg" alt="Nuestro recuerdo">
+                        <span>Nosotros ♡</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- 03. MOMENTOS IMPORTANTES -->
+            <section id="momentos-regalo" class="seccion-regalo momentos-seccion">
+
+                <div class="titulo-seccion">
+                    <span class="etiqueta">FECHAS INOLVIDABLES</span>
+                    <h2>Momentos que no olvido</h2>
+                    <p>Hay fechas que se quedan para siempre.</p>
+                </div>
+
+                <div class="linea-tiempo">
+
+                    <article class="momento">
+                        <span class="fecha">Nuestro comienzo</span>
+                        <h3>Cuando nos conocimos ♡</h3>
+                        <p>Aquí puedes contar cómo comenzó su historia.</p>
+                    </article>
+
+                    <article class="momento">
+                        <span class="fecha">Un día especial</span>
+                        <h3>Nuestra primera cita</h3>
+                        <p>Ese recuerdo que siempre te hace sonreír.</p>
+                    </article>
+
+                    <article class="momento">
+                        <span class="fecha">Una aventura juntos</span>
+                        <h3>Nuestro primer viaje</h3>
+                        <p>Los lugares y experiencias que compartieron.</p>
+                    </article>
+
+                    <article class="momento">
+                        <span class="fecha">Hoy</span>
+                        <h3>Un cumpleaños más contigo</h3>
+                        <p>Y muchos recuerdos que todavía nos faltan.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- 04. RAZONES POR LAS QUE LO QUIERO -->
+            <section id="razones-regalo" class="seccion-regalo razones-seccion">
+
+                <div class="titulo-seccion">
+                    <span class="etiqueta">UN POQUITO DE MI CORAZÓN</span>
+                    <h2>Razones por las que te quiero</h2>
+                    <p>Algunas de las muchísimas cosas que amo de ti.</p>
+                </div>
+
+                <div class="tarjetas-razones">
+
+                    <article class="razon">
+                        <span>01 ♡</span>
+                        <h3>Tu sonrisa</h3>
+                        <p>Porque siempre consigue alegrarme el día.</p>
+                    </article>
+
+                    <article class="razon">
+                        <span>02 ♡</span>
+                        <h3>Tu forma de ser</h3>
+                        <p>Porque eres alguien verdaderamente especial.</p>
+                    </article>
+
+                    <article class="razon">
+                        <span>03 ♡</span>
+                        <h3>Nuestros momentos</h3>
+                        <p>Porque hasta los días más sencillos son bonitos contigo.</p>
+                    </article>
+
+                    <article class="razon">
+                        <span>04 ♡</span>
+                        <h3>Simplemente tú</h3>
+                        <p>Porque no necesito una razón para quererte.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- 05. NUESTRA CANCIÓN -->
+            <section id="cancion-regalo" class="seccion-regalo cancion-seccion">
+
+                <span class="etiqueta">UNA CANCIÓN PARA NOSOTROS</span>
+
+                <h2>Nuestra canción ♡</h2>
+
+                <p>
+                    Hay canciones que se escuchan diferente
+                    cuando te recuerdan a alguien.
+                </p>
+
+                <div class="cancion-card">
+
+                    <div class="portada-cancion">
+                        <span>♫</span>
+                    </div>
+
+                    <div class="info-cancion">
+                        <h3>Nuestra canción favorita</h3>
+                        <p>Una canción que siempre me recuerda a ti.</p>
+
+                        <audio controls>
+                            <source src="/assets/nuestra-cancion.mp3" type="audio/mpeg">
+                            Tu navegador no soporta audio.
+                        </audio>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- 06. CARTA FINAL -->
+            <section id="carta-regalo" class="seccion-regalo carta-seccion">
+
+                <span class="etiqueta">ALGO QUE QUIERO DECIRTE</span>
+
+                <h2>Una carta para ti 💌</h2>
+
+                <p>Porque hay cosas que merecen escribirse.</p>
+
+                <button id="mostrar-carta" class="btn-regalo">
+                    Leer mi carta ♡
+                </button>
+
+                <div id="contenido-carta" class="carta-contenido" hidden>
+
+                    <h3>Feliz cumpleaños, mi amor.</h3>
+
+                    <p>
+                        Hoy quiero recordarte lo especial que eres
+                        para mí. Gracias por cada sonrisa, cada abrazo,
+                        cada aventura y cada momento que hemos compartido.
+                    </p>
+
+                    <p>
+                        Deseo que este nuevo año de vida esté lleno
+                        de sueños cumplidos, felicidad y muchísimas
+                        cosas bonitas.
+                    </p>
+
+                    <p>
+                        Espero seguir creando muchos recuerdos contigo.
+                        Te quiero muchísimo.
+                    </p>
+
+                    <span>Con todo mi amor, siempre. ♡</span>
+
+                </div>
+
+            </section>
+
+
+            <footer class="footer-regalo">
+                <p>Hecho con mucho amor, especialmente para ti.</p>
+                <span>♡</span>
+            </footer>
+
+        </section>
+
+
+    </main>
+
+    <script type="module" src="/js/main.js"></script>
+
+</body>
+</html>

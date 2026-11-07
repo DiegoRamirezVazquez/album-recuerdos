@@ -1,0 +1,968 @@
+/* =========================================================
+   1. FUENTES, VARIABLES Y CONFIGURACIÓN GENERAL
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+    --fondo: #f8f4ef;
+    --cafe: #76513e;
+    --cafe-claro: #a7836d;
+    --texto: #46372f;
+    --crema: #fffaf3;
+    --arena: #eee2d5;
+    --vino: #bd7772;
+    --borde: #e8ddd1;
+    --sombra: 0 12px 30px rgba(70, 50, 35, 0.14);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   2. SISTEMA DE PANTALLAS
+========================================================= */
+
+.pantalla {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--fondo);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .8s ease, visibility .8s;
+}
+
+.pantalla.activa {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   3. PANTALLA 1 - INICIO Y DEDICATORIA
+========================================================= */
+
+#pantalla-inicio {
+    padding: 30px 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--vino);
+}
+
+.idioma {
+    position: absolute;
+    top: 65px;
+    right: 35px;
+    padding: 9px 16px;
+    border-radius: 30px;
+    background: var(--arena);
+    color: var(--cafe);
+    font-size: 12px;
+}
+
+.contenido-inicio {
+    width: 100%;
+    max-width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.subtitulo {
+    margin-bottom: 35px;
+    color: var(--cafe-claro);
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.boton-musica {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 18px;
+    border: 1px solid #dfd0c2;
+    border-radius: 50%;
+    background: #f0e9e1;
+    color: var(--cafe);
+    font-size: 19px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 55px;
+    font-weight: 400;
+    margin-bottom: 22px;
+}
+
+.dedicatoria {
+    max-width: 340px;
+    color: #806b5d;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.indicacion {
+    margin-top: 80px;
+    color: #9a897e;
+    font-size: 13px;
+}
+
+.corazon-inicio {
+    margin-top: 35px;
+    border: none;
+    background: transparent;
+    color: var(--cafe);
+    font-size: 65px;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform .3s, color .3s;
+}
+
+.corazon-inicio:hover {
+    transform: scale(1.2);
+    color: var(--vino);
+}
+
+
+/* =========================================================
+   4. PANTALLA 2 - CORAZÓN INTERACTIVO
+========================================================= */
+
+.contenido-corazon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.corazon-principal {
+    width: 145px;
+    height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: var(--cafe);
+    animation: latido 2s ease-in-out infinite;
+}
+
+.corazon-principal svg {
+    width: 100%;
+    height: 100%;
+}
+
+#relleno-corazon {
+    transition: height .5s ease, y .5s ease;
+}
+
+.corazon-principal.completo {
+    color: #c94f59;
+    animation: latido 1s ease-in-out infinite;
+}
+
+.texto-corazon {
+    margin-top: 50px;
+    color: #8b7d73;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.decoraciones span {
+    position: absolute;
+    color: #d7bda8;
+    opacity: .4;
+}
+
+.decoraciones span:nth-child(1) {
+    top: 15%;
+    left: 15%;
+    font-size: 25px;
+}
+
+.decoraciones span:nth-child(2) {
+    top: 28%;
+    right: 20%;
+    font-size: 30px;
+}
+
+.decoraciones span:nth-child(3) {
+    bottom: 20%;
+    left: 22%;
+    font-size: 30px;
+}
+
+.decoraciones span:nth-child(4) {
+    right: 18%;
+    bottom: 15%;
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   5. PANTALLA 3 - CONTENEDOR Y NAVEGACIÓN
+========================================================= */
+
+#pantalla-regalo {
+    position: fixed;
+    inset: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--fondo);
+    scroll-behavior: smooth;
+}
+
+.nav-regalo {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 70px;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--borde);
+    background: rgba(248, 244, 239, .95);
+    backdrop-filter: blur(12px);
+}
+
+.logo-regalo {
+    color: var(--cafe);
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+}
+
+.nav-regalo nav {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-regalo nav a {
+    color: var(--cafe);
+    font-size: 12px;
+    transition: color .3s;
+}
+
+.nav-regalo nav a:hover {
+    color: #c45b60;
+}
+
+
+/* =========================================================
+   6. ESTILOS GENERALES DE LAS SECCIONES
+========================================================= */
+
+.etiqueta {
+    color: var(--cafe-claro);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.seccion-regalo {
+    padding: 100px 8%;
+}
+
+.titulo-seccion {
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.titulo-seccion h2,
+.cancion-seccion h2,
+.carta-seccion h2 {
+    margin: 18px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 400;
+}
+
+.titulo-seccion p,
+.cancion-seccion > p,
+.carta-seccion > p {
+    color: #8b786b;
+    font-family: 'Times New Roman', serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   7. PORTADA DE CUMPLEAÑOS - TEXTO Y COLLAGE
+========================================================= */
+
+.cumple-hero {
+    min-height: calc(100vh - 70px);
+    padding: 20px 6% 35px;
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    align-items: center;
+    gap: 45px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 80% 45%, #eee1d5 0%, transparent 45%),
+        var(--fondo);
+}
+
+.hero-content {
+    max-width: 560px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    text-align: center;
+}
+
+.hero-content .etiqueta {
+    margin-bottom: 5px;
+}
+
+.hero-content h1 {
+    margin: 15px 0 20px;
+    color: var(--cafe);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(55px, 6vw, 88px);
+    font-weight: 400;
+    line-height: 1.05;
+    text-align: center;
+}
+
+.hero-content h2 {
+    margin-bottom: 22px;
+    color: var(--cafe-claro);
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+}
+
+.hero-content p {
+    max-width: 440px;
+    margin: 0 auto 30px;
+    color: var(--texto);
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.btn-regalo {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: var(--cafe);
+    color: white;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.btn-regalo:hover {
+    transform: translateY(-3px);
+    background: var(--cafe-claro);
+}
+
+.hero-collage {
+    width: 100%;
+    max-width: 700px;
+    height: 650px;
+    margin: auto;
+    position: relative;
+    transform: translateY(-20px);
+}
+
+.collage-photo {
+    position: absolute;
+    padding: 9px 9px 27px;
+    border: 1px solid #eee5db;
+    background: #fffdf9;
+    box-shadow: var(--sombra);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.collage-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.collage-photo::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    z-index: 2;
+    width: 65px;
+    height: 19px;
+    background: rgba(205, 181, 153, .45);
+    transform: translateX(-50%) rotate(-4deg);
+}
+
+.collage-photo:hover {
+    z-index: 10;
+    transform: rotate(0deg) scale(1.06);
+    box-shadow: 0 18px 35px rgba(70, 50, 35, .25);
+}
+
+/* Posición individual de las siete fotografías */
+
+.photo-one {
+    top: 3%;
+    left: 17%;
+    width: 38%;
+    height: 43%;
+    transform: rotate(-7deg);
+}
+
+.photo-two {
+    top: 1%;
+    right: 5%;
+    width: 34%;
+    height: 38%;
+    transform: rotate(7deg);
+}
+
+.photo-three {
+    top: 29%;
+    left: 0;
+    width: 35%;
+    height: 42%;
+    transform: rotate(5deg);
+}
+
+.photo-four {
+    top: 31%;
+    left: 32%;
+    z-index: 4;
+    width: 39%;
+    height: 45%;
+    transform: rotate(-3deg);
+}
+
+.photo-five {
+    top: 34%;
+    right: 0;
+    width: 31%;
+    height: 39%;
+    transform: rotate(6deg);
+}
+
+.photo-six {
+    bottom: 0;
+    left: 7%;
+    width: 36%;
+    height: 36%;
+    transform: rotate(-5deg);
+}
+
+.photo-seven {
+    right: 6%;
+    bottom: 0;
+    z-index: 3;
+    width: 39%;
+    height: 36%;
+    transform: rotate(5deg);
+}
+
+.collage-heart {
+    position: absolute;
+    right: 4%;
+    bottom: 2%;
+    z-index: 6;
+    color: var(--vino);
+    font-size: 45px;
+}
+
+
+/* =========================================================
+   8. GALERÍA DE RECUERDOS
+========================================================= */
+
+.galeria-recuerdos {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 18px;
+}
+
+.recuerdo {
+    position: relative;
+    overflow: hidden;
+    border: 7px solid var(--crema);
+    background: var(--arena);
+    box-shadow: 0 8px 25px rgba(57, 42, 37, .08);
+    transition: transform .3s;
+}
+
+.recuerdo:hover {
+    transform: translateY(-5px);
+}
+
+.recuerdo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.recuerdo span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 10px 12px;
+    background: linear-gradient(transparent, rgba(36, 23, 16, .72));
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+.recuerdo-grande,
+.recuerdo-alto {
+    grid-row: span 2;
+}
+
+.recuerdo-ancho {
+    grid-column: span 1;
+}
+
+
+/* =========================================================
+   9. NUESTRA HISTORIA - LÍNEA DEL TIEMPO
+========================================================= */
+
+.momentos-seccion {
+    background: var(--arena);
+}
+
+.linea-tiempo {
+    max-width: 750px;
+    margin: auto;
+    padding-left: 35px;
+    border-left: 2px solid #c7a78e;
+}
+
+.momento {
+    position: relative;
+    padding: 10px 0 40px;
+}
+
+.momento::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: -43px;
+    width: 14px;
+    height: 14px;
+    border: 4px solid var(--arena);
+    border-radius: 50%;
+    background: var(--cafe-claro);
+}
+
+.fecha {
+    color: var(--cafe-claro);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.momento h3 {
+    margin: 10px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.momento p {
+    color: #806b5d;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   10. RAZONES POR LAS QUE TE QUIERO
+========================================================= */
+
+.tarjetas-razones {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.razon {
+    padding: 35px;
+    border: 1px solid #eaded2;
+    background: var(--crema);
+    transition: transform .3s;
+}
+
+.razon:hover {
+    transform: translateY(-5px);
+}
+
+.razon span {
+    color: #bd827b;
+    font-size: 12px;
+}
+
+.razon h3 {
+    margin: 18px 0 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.razon p {
+    color: #8b786b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   11. CANCIÓN ESPECIAL
+========================================================= */
+
+.cancion-seccion {
+    background: #e8d8c8;
+    text-align: center;
+}
+
+.cancion-card {
+    max-width: 550px;
+    margin: 40px auto 0;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: var(--crema);
+    text-align: left;
+}
+
+.portada-cancion {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, #b99378, var(--cafe));
+    color: white;
+    font-size: 55px;
+}
+
+.info-cancion {
+    min-width: 0;
+}
+
+.info-cancion h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.info-cancion p {
+    margin: 10px 0;
+    color: #8b786b;
+    font-size: 12px;
+}
+
+.info-cancion audio {
+    width: 100%;
+    max-width: 300px;
+}
+
+
+/* =========================================================
+   12. CARTA
+========================================================= */
+
+.carta-seccion {
+    text-align: center;
+}
+
+.carta-contenido {
+    max-width: 650px;
+    margin: 35px auto 0;
+    padding: 45px;
+    border: 1px solid #e5d5c6;
+    background: var(--crema);
+    box-shadow: 0 15px 35px rgba(57, 42, 37, .06);
+    text-align: left;
+    animation: aparecer .6s ease;
+}
+
+.carta-contenido h3 {
+    margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.carta-contenido p {
+    margin-bottom: 18px;
+    color: #725d50;
+    line-height: 2;
+}
+
+.carta-contenido span {
+    display: block;
+    margin-top: 30px;
+    color: var(--cafe);
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   13. PIE DE PÁGINA
+========================================================= */
+
+.footer-regalo {
+    padding: 30px;
+    background: var(--cafe);
+    color: var(--crema);
+    font-size: 13px;
+    text-align: center;
+}
+
+.footer-regalo span {
+    display: block;
+    margin-top: 10px;
+    color: #d99a91;
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   14. ANIMACIONES
+========================================================= */
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.09);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   15. DISEÑO RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+    .cumple-hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 55px 22px 45px;
+    }
+
+    .hero-content {
+        margin: auto;
+        text-align: center;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-collage {
+        max-width: 580px;
+        height: 470px;
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   16. DISEÑO RESPONSIVE - CELULARES
+========================================================= */
+
+@media (max-width: 750px) {
+    .nav-regalo {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .nav-regalo nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .nav-regalo nav a {
+        font-size: 11px;
+    }
+
+    .seccion-regalo {
+        padding: 75px 6%;
+    }
+
+    .galeria-recuerdos {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 220px 180px 180px;
+        gap: 12px;
+    }
+
+    .recuerdo-grande {
+        grid-row: span 2;
+    }
+
+    .recuerdo-alto {
+        grid-row: span 1;
+    }
+
+    .tarjetas-razones {
+        gap: 12px;
+    }
+
+    .razon {
+        padding: 22px 16px;
+    }
+
+    .cancion-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-cancion audio {
+        margin-top: 10px;
+    }
+
+    .carta-contenido {
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        top: 45px;
+    }
+
+    .idioma {
+        top: 45px;
+        right: 18px;
+    }
+
+    h1 {
+        font-size: 47px;
+    }
+
+    .dedicatoria {
+        padding: 0 15px;
+        font-size: 15px;
+    }
+
+    .indicacion {
+        margin-top: 65px;
+    }
+
+    .corazon-principal {
+        width: 125px;
+        height: 125px;
+    }
+
+    .hero-content h1 {
+        font-size: 55px;
+    }
+
+    .hero-collage {
+        height: 360px;
+    }
+
+    .collage-photo {
+        padding: 6px 6px 19px;
+    }
+
+    .collage-photo::before {
+        width: 42px;
+        height: 13px;
+    }
+
+    .galeria-recuerdos {
+        grid-template-rows: 170px 150px 150px;
+    }
+
+    .tarjetas-razones {
+        grid-template-columns: 1fr;
+    }
+}
